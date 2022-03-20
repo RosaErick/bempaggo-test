@@ -9,6 +9,11 @@ box-size:border-box;
 
 body{
     background: #8A2BE2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -37,11 +42,16 @@ line-height:22px;
     display:flex;
     flex-direction:column;
     gap:10px;
+    width:100%;
+    align-items: center;
+    cursor:pointer;
+    
 }
 
 .form-options{
 display:flex;
-gap:20px;
+gap:30px;
+width:250px;
 
 }
 
@@ -55,7 +65,7 @@ gap:20px;
 
 .text-area-box textarea{
 width:300px!important;
-height:70px!important;
+height:40px!important;
 padding:10px;
 
 }
@@ -67,31 +77,28 @@ height:50px;
 display:flex;
 justify-content:end;
 align-items:flex-end;
-padding: 10px;
+padding: 0 10px;
+margin-bottom:10px;
 
 }
 
-.send-button{
-margin:10px 20px;
-padding:10px 20px;
-border: 1px solid transparent;
-background-color:#2e3575;
-color:#fff;
-font-weight:bold;
-border-radius:10px;
 
 
-}
-
-@media screen and (max-width:800px){
+@media screen and (max-width:470px){
  section{
-width:80vw!important;
+width:85vw!important;
 
  }
 
+ .text-area-box textarea{
+width:200px!important;
+height:65px!important;
+padding:10px;
+margin-top:5px;
+
+}
+
 }   
-
-
  `;
 
 export default GlobalStyle;
