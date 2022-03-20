@@ -10,28 +10,31 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: 10px auto;
-  width: 50vw;
-  height: 45vw;
+  width: 450px;
+  height: auto;
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
+  gap:20px;
 `;
 
 const Container = styled.header`
   display: flex;
-  color: rgba(255, 255, 255, 0.699);
   background-color: #2e3575;
   border-radius: 20px 20px 115% 100%;
-  justify-content: center;
   align-items: center;
+  padding-bottom:20px;
   width: 100%;
   height: 200px;
+  gap:10px;
 
   h2 {
-    color: #fff;
-    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+    width:50%;
     line-height: 20px;
     margin-left: 20px;
+    font-weight: 400;
   }
   figure {
     width: 50%;
@@ -40,8 +43,13 @@ const Container = styled.header`
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+  }
+
+  span {
+    font-weight: 900;
+    color: #fff;
   }
 `;
 
@@ -60,74 +68,80 @@ function App() {
       angular: angularQuantity,
       obs: obs,
     });
-    console.log(data);
+    console.log(data.react);
   }
 
   return (
     <>
       <Wrapper>
         <Container>
-          <h2>Formulário para compra de Pacote de adesivos</h2>
+          <h2>
+            Formulário para compra de <span>Pacote de adesivos</span>
+          </h2>
           <figure>
             <img src={boxlogo} alt="" />
           </figure>
         </Container>
 
         <form className="form-container">
-          <h2>Quais adesivos:</h2>
-       
-            <div className="form-options">
-              <div className="form-row">
-                <img src={reactlogo} alt="" />
-                <label htmlFor="reactQuantity">React</label>
-                <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  placeholder="0"
-                  onChange={(e) => setReactQuantity(e.target.value)}
-                  id="reactQuantity"
-                />
-              </div>
+          <h2>Adesivos Disponíveis:</h2>
 
-              <div className="form-row">
-                <img src={vuelogo} alt="" />
-                <label htmlFor="vueQuantity">Vue</label>
-                <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  id="vueQuantity"
-                  placeholder="0"
-                  onChange={(e) => setVueQuantity(e.target.value)}
-                />{" "}
-              </div>
-
-              <div className="form-row">
-                <img src={angularlogo} alt="" />
-                <label htmlFor="angularQuantity">Angular</label>
-                <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  id="angularQuantity"
-                  placeholder="0"
-                  onChange={(e) => setAngularQuantity(e.target.value)}
-                />
-              </div>
+          <div className="form-options">
+            <div className="form-row">
+              <img src={reactlogo} alt="" />
+              <label htmlFor="reactQuantity">React</label>
+              <input
+                type="number"
+                min={0}
+                max={20}
+                placeholder="0"
+                onChange={(e) => setReactQuantity(e.target.value)}
+                id="reactQuantity"
+              />
             </div>
-            <div className="text-area-box">
-              <h2>Observações:</h2>
-              <textarea
-                onChange={(e) => setObs(e.target.value)}
-                placeholder="Alguma duvida? Recado?"
-              ></textarea>
-            </div>
-        
 
-          <button className="send-button" type="submit" onClick={handleSubmit}>
-            Enviar
-          </button>
+            <div className="form-row">
+              <img src={vuelogo} alt="" />
+              <label htmlFor="vueQuantity">Vue</label>
+              <input
+                type="number"
+                min={0}
+                max={20}
+                id="vueQuantity"
+                placeholder="0"
+                onChange={(e) => setVueQuantity(e.target.value)}
+              />{" "}
+            </div>
+
+            <div className="form-row">
+              <img src={angularlogo} alt="" />
+              <label htmlFor="angularQuantity">Angular</label>
+              <input
+                type="number"
+                min={0}
+                max={20}
+                id="angularQuantity"
+                placeholder="0"
+                onChange={(e) => setAngularQuantity(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="text-area-box">
+            <h2>Observações:</h2>
+            <textarea
+              onChange={(e) => setObs(e.target.value)}
+              placeholder="Alguma duvida? Recado?"
+            ></textarea>
+          </div>
+          <div className="button-box">
+            <button
+              className="send-button"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Enviar
+            </button>
+          </div>
         </form>
       </Wrapper>
     </>
