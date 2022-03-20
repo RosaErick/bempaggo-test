@@ -16,6 +16,35 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type="number" i] {
+   border:2px solid #2e3575;
+   width:35px;
+   height:10px;
+   margin: 0 0 0 10px;
+   border-radius:4px;
+   padding:2px;
+
+}
+
+input[type="checkbox" i] {
+    all:unset;
+    background-color: initial;
+    cursor: pointer;
+    width:10px;
+    height:10px;
+    margin: 3px 3px 3px 4px;
+    border:2px solid #2e3575;
+    border-radius:20px;
+  
+}
+
+input[type=number]::-webkit-inner-spin-button {
+        width:100%;
+        ;
+           
+}
+
+
 
 .form-container{
 display:flex;
@@ -23,7 +52,7 @@ flex-direction:column;
 width:100%;
 justify-content:center;
 align-items:center;
-gap:10px;
+gap:20px;
 
 
 h2{
@@ -48,11 +77,21 @@ line-height:22px;
     
 }
 
+.form-row span{
+    font-size:8px;
+}
+
 .form-options{
 display:flex;
 gap:30px;
 width:250px;
 
+}
+
+.input-row{
+    display:flex;
+    align-items:center;
+    gap:5px;
 }
 
 .text-area-box{
@@ -69,6 +108,7 @@ height:40px!important;
 padding:10px;
 
 }
+
 
 
 .button-box{

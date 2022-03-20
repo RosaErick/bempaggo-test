@@ -17,7 +17,7 @@ const ModalWrapper = styled.div`
 
 const ModalContainer = styled.div`
   position: relative;
-  width: 60vw;
+  width: 300px;
   height: 30vh;
   border-radius:20px;
   background-color: #fff;

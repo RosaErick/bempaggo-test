@@ -16,12 +16,14 @@ const Wrapper = styled.section`
   background-color: #fff;
   border-radius: 10px;
   gap: 20px;
+-webkit-box-shadow: 0px 2px 9px 5px rgba(0,0,0,0.63); 
+box-shadow: 0px 2px 9px 5px rgba(0,0,0,0.63);
 `;
 
 const Container = styled.header`
   display: flex;
   background-color: #2e3575;
-  border-radius: 20px 20px 115% 100%;
+  border-radius: 14px 14px 115% 100%;
   align-items: center;
   padding-bottom: 20px;
   width: 100%;
@@ -84,9 +86,8 @@ function Form() {
       obs: obs,
     });
     console.log(data);
-         setModalBox(!modalBox);
+    setModalBox(!modalBox);
   }
- 
 
   return (
     <>
@@ -105,22 +106,59 @@ function Form() {
 
           <div className="form-options">
             <div className="form-row">
+              <img src={angularlogo} alt="" />
+              <label htmlFor="angularQuantity">Angular</label>
+              {!angularInput ? (
+                <input
+                  type="checkbox"
+                  id="angularCheck"
+                  onChange={() => setAngularInput(!angularInput)}
+                />
+              ) : null}
+
+              {angularInput ? (
+                <>
+                  <div className="input-row">
+                    <input
+                      type="number"
+                      min={0}
+                      max={20}
+                      id="angularQuantity"
+                      placeholder="0"
+                      onChange={(e) => setAngularQuantity(e.target.value)}
+                    />
+                    <span onClick={() => setAngularInput(!angularInput)}>
+                      X
+                    </span>
+                  </div>
+                </>
+              ) : null}
+            </div>
+            <div className="form-row">
               <img src={reactlogo} alt="" />
               <label htmlFor="reactCheck">React</label>
-              <input
-                type="checkbox"
-                id="reactCheck"
-                onChange={() => setReactInput(!reactInput)}
-              />
-              {reactInput ? (
+              {!reactInput ? (
                 <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  placeholder="0"
-                  onChange={(e) => setReactQuantity(e.target.value)}
-                  id="reactQuantity"
+                  type="checkbox"
+                  id="reactCheck"
+                  onChange={() => setReactInput(!reactInput)}
                 />
+              ) : null}
+
+              {reactInput ? (
+                <>
+                  <div className="input-row">
+                    <input
+                      type="number"
+                      min={0}
+                      max={20}
+                      placeholder="0"
+                      onChange={(e) => setReactQuantity(e.target.value)}
+                      id="reactQuantity"
+                    />
+                    <span onClick={() => setReactInput(!reactInput)}>X</span>
+                  </div>
+                </>
               ) : null}
             </div>
 
@@ -128,41 +166,30 @@ function Form() {
               <img src={vuelogo} alt="" />
               <label htmlFor="vueCheck">Vue</label>
 
-              <input
-                type="checkbox"
-                id="vueCheck"
-                onChange={() => setVueInput(!vueInput)}
-              />
-              {vueInput ? (
-                <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  id="vueQuantity"
-                  placeholder="0"
-                  onChange={(e) => setVueQuantity(e.target.value)}
-                />
+              {!vueInput ? (
+                <>
+                  {" "}
+                  <input
+                    type="checkbox"
+                    id="vueCheck"
+                    onChange={() => setVueInput(!vueInput)}
+                  />{" "}
+                </>
               ) : null}
-            </div>
-
-            <div className="form-row">
-              <img src={angularlogo} alt="" />
-              <label htmlFor="angularQuantity">Angular</label>
-              <input
-                type="checkbox"
-                id="angularCheck"
-                onChange={() => setAngularInput(!angularInput)}
-              />
-
-              {angularInput ? (
-                <input
-                  type="number"
-                  min={0}
-                  max={20}
-                  id="angularQuantity"
-                  placeholder="0"
-                  onChange={(e) => setAngularQuantity(e.target.value)}
-                />
+              {vueInput ? (
+                <>
+                  <div className="input-row">
+                    <input
+                      type="number"
+                      min={0}
+                      max={20}
+                      id="vueQuantity"
+                      placeholder="0"
+                      onChange={(e) => setVueQuantity(e.target.value)}
+                    />{" "}
+                    <span onClick={() => setVueInput(!vueInput)}>X</span>
+                  </div>
+                </>
               ) : null}
             </div>
           </div>
@@ -174,17 +201,13 @@ function Form() {
             ></textarea>
           </div>
           <div className="button-box">
-            <Button
-              className="send-button"
-              type="submit"
-              
-            >
+            <Button className="send-button" type="submit">
               Enviar
             </Button>
           </div>
         </form>
       </Wrapper>
-      {modalBox? <Modal /> : null}
+      {modalBox ? <Modal /> : null}
     </>
   );
 }
