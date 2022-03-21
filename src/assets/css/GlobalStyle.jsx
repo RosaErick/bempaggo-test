@@ -61,7 +61,6 @@ align-self:flex-start;
 padding: 0 20px 10px 20px;
 font-size:18px;
 line-height:22px;
-
 }
 
 }
@@ -73,8 +72,7 @@ line-height:22px;
     gap:10px;
     width:100%;
     align-items: center;
-    cursor:pointer;
-    
+    cursor:pointer;   
 }
 
 .form-row span{
@@ -85,7 +83,6 @@ line-height:22px;
 display:flex;
 gap:30px;
 width:250px;
-
 }
 
 .input-row{
@@ -98,15 +95,13 @@ width:250px;
     width:100%;
     display:flex;
     flex-direction:column;
-    align-items:center;
-    
+    align-items:center;  
 }
 
 .text-area-box textarea{
 width:300px!important;
 height:40px!important;
 padding:10px;
-
 }
 
 
@@ -119,7 +114,6 @@ justify-content:end;
 align-items:flex-end;
 padding: 0 10px;
 margin-bottom:10px;
-
 }
 
 

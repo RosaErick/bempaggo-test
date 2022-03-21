@@ -61,13 +61,12 @@ img{
 
 `;
 
-export const Modal = () => {
-  const [showModal, setShowModal] = useState(true);
-
+export const Modal = (props) => {
+  
   return (
     <>
-      {showModal ? (
-        <ModalWrapper onClick={() => setShowModal(!showModal)}>
+      (
+        <ModalWrapper onClick={() => props.setShowModal(false)}>
           <ModalContainer>
             <Header>
               {" "}
@@ -76,11 +75,11 @@ export const Modal = () => {
 
             <p>Seu pedido foi efetuado com sucesso</p>
                 <ButtonBox>
-                          <Button onClick={() => setShowModal(!showModal)}>Sair</Button>
+                          <Button onClick={() => props.setShowModal(false)}>Sair</Button>
                           </ButtonBox>
           </ModalContainer>
         </ModalWrapper>
-      ) : null}
+      ) 
     </>
   );
 };

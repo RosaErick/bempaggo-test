@@ -79,16 +79,23 @@ function Form() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    setData({
+     setData({
       angular: angularQuantity,
       react: reactQuantity,
       vue: vueQuantity,
       obs: obs,
     });
-    console.log(data);
-    setModalBox(!modalBox);
+
   }
 
+  useEffect(() => {
+    console.log(data);
+
+  if (Object.keys(data).length > 0) setModalBox(true);
+
+  }, [data]);
+
+  
   return (
     <>
       <Wrapper>
@@ -168,7 +175,6 @@ function Form() {
 
               {!vueInput ? (
                 <>
-                  {" "}
                   <input
                     type="checkbox"
                     id="vueCheck"
@@ -207,9 +213,11 @@ function Form() {
           </div>
         </form>
       </Wrapper>
-      {modalBox ? <Modal /> : null}
+      {modalBox && <Modal setShowModal={setModalBox} />}
     </>
   );
 }
+
+
 
 export default Form;
