@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
 import boxlogo from "../assets/imgs/caixa-de-entrega.png";
 
 const ModalWrapper = styled.div`
@@ -55,9 +54,6 @@ img{
     height:30px;
     padding:5px;
 }
-
-
-
 
 `;
 

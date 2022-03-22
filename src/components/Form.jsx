@@ -16,8 +16,8 @@ const Wrapper = styled.section`
   background-color: #fff;
   border-radius: 10px;
   gap: 20px;
--webkit-box-shadow: 0px 2px 9px 5px rgba(0,0,0,0.63); 
-box-shadow: 0px 2px 9px 5px rgba(0,0,0,0.63);
+  -webkit-box-shadow: 0px 2px 9px 5px rgba(0, 0, 0, 0.63);
+  box-shadow: 0px 2px 9px 5px rgba(0, 0, 0, 0.63);
 `;
 
 const Container = styled.header`
@@ -66,9 +66,9 @@ const Button = styled.button`
 `;
 
 function Form() {
-  const [vueQuantity, setVueQuantity] = useState(0);
-  const [angularQuantity, setAngularQuantity] = useState(0);
-  const [reactQuantity, setReactQuantity] = useState(0);
+  const [vueQuantity, setVueQuantity] = useState('');
+  const [angularQuantity, setAngularQuantity] = useState('');
+  const [reactQuantity, setReactQuantity] = useState('');
   const [reactInput, setReactInput] = useState(false);
   const [vueInput, setVueInput] = useState(false);
   const [angularInput, setAngularInput] = useState(false);
@@ -78,24 +78,21 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(e);
 
-     setData({
+    setData({
       angular: angularQuantity,
       react: reactQuantity,
       vue: vueQuantity,
       obs: obs,
     });
-
   }
 
   useEffect(() => {
-    console.log(data);
-
-  if (Object.keys(data).length > 0) setModalBox(true);
-
+    console.log(data)
+    if (Object.keys(data).length > 0) setModalBox(true);
   }, [data]);
 
-  
   return (
     <>
       <Wrapper>
@@ -217,7 +214,5 @@ function Form() {
     </>
   );
 }
-
-
 
 export default Form;
